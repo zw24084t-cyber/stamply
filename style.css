@@ -1,44 +1,31 @@
-body{
-    margin:0;
-    padding:0;
-    font-family: sans-serif;
-    background:#f5f5f5;
-    text-align:center;
+let count = 0;
+
+function takePhoto(){
+
+    document.getElementById("camera").click();
+
 }
 
-h1{
-    background:#06C755;
-    color:white;
-    margin:0;
-    padding:20px;
-}
+document.getElementById("camera").addEventListener("change", function(){
 
-.card{
-    margin:30px auto;
-    width:350px;
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
-}
+    if(count >= 4){
 
-img{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-}
+        return;
 
-button{
-    margin-top:20px;
-    padding:10px 25px;
-    font-size:18px;
-    background:#06C755;
-    color:white;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-}
+    }
 
-button:hover{
-    background:#04a947;
-}
+    count++;
+
+    const stamp = document.getElementById("stamp"+count);
+
+    stamp.classList.add("done");
+    stamp.innerHTML="✓";
+
+    if(count==4){
+
+        document.getElementById("message").innerHTML=
+        "🎉 スタンプラリー達成！";
+
+    }
+
+});
