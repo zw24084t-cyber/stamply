@@ -2,43 +2,82 @@
 <html lang="ja">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>スタンプリー</title>
 
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <h1>スタンプリー</h1>
+<header>
 
-    <div class="card">
+<h1>スタンプリー</h1>
 
-        <h2>スタンプカード</h2>
+<p id="username">こんにちは！</p>
 
-        <div class="stamp-area">
+</header>
 
-            <div class="stamp" id="stamp1">①</div>
-            <div class="stamp" id="stamp2">②</div>
-            <div class="stamp" id="stamp3">③</div>
-            <div class="stamp" id="stamp4">④</div>
+<div class="container">
 
-        </div>
+<h2>スタンプカード</h2>
 
-        <button onclick="scanQRCode()">
-            QRコードを読み取る
-        </button>
+<div class="stamp-card">
 
-        <p id="message"></p>
+<div class="stamp" id="stamp1">□</div>
+<div class="stamp" id="stamp2">□</div>
+<div class="stamp" id="stamp3">□</div>
+<div class="stamp" id="stamp4">□</div>
+<div class="stamp" id="stamp5">□</div>
 
-    </div>
+<div class="stamp" id="stamp6">□</div>
+<div class="stamp" id="stamp7">□</div>
+<div class="stamp" id="stamp8">□</div>
+<div class="stamp" id="stamp9">□</div>
+<div class="stamp" id="stamp10">□</div>
 
-    <script src="script.js"></script>
+</div>
+
+<p id="count">0 / 10 個</p>
+
+<progress id="progress" value="0" max="10"></progress>
+
+<p id="rate">達成率 0%</p>
+
+<button onclick="scanQRCode()">
+
+QRコードを読み取る
+
+</button>
+
+<h2>特典一覧</h2>
+
+<div class="reward">
+
+<p>⭐ 5個達成　ドリンク無料</p>
+
+<p>🎉 10個達成　500円OFFクーポン</p>
+
+</div>
+
+<h2>取得履歴</h2>
+
+<ul id="history">
+
+<li>まだスタンプはありません。</li>
+
+</ul>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 
 </html>
-
