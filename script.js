@@ -1,28 +1,80 @@
-const liffId = "2010557922-mgx06sya";
+body{
 
-async function main(){
-
-    await liff.init({
-        liffId:liffId
-    });
-
-    if(!liff.isLoggedIn()){
-        document.getElementById("loginBtn").style.display="inline";
-        return;
-    }
-
-    document.getElementById("loginBtn").style.display="none";
-
-    const profile = await liff.getProfile();
-
-    document.getElementById("name").innerHTML = profile.displayName;
-    document.getElementById("userId").innerHTML = profile.userId;
-    document.getElementById("icon").src = profile.pictureUrl;
+    margin:0;
+    font-family:sans-serif;
+    background:#f2f2f2;
+    text-align:center;
 
 }
 
-document.getElementById("loginBtn").addEventListener("click",()=>{
-    liff.login();
-});
+h1{
 
-main();
+    background:#06C755;
+    color:white;
+    padding:20px;
+
+}
+
+.card{
+
+    width:380px;
+    margin:30px auto;
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+
+}
+
+.stamp-area{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin:30px;
+
+}
+
+.stamp{
+
+    width:120px;
+    height:120px;
+    border:3px dashed gray;
+    border-radius:50%;
+    font-size:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+
+}
+
+.done{
+
+    background:#ffb6c1;
+    border:none;
+    color:red;
+    font-size:50px;
+
+}
+
+button{
+
+    padding:15px 40px;
+    font-size:20px;
+    background:#06C755;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+
+}
+
+#message{
+
+    margin-top:30px;
+    font-size:22px;
+    color:red;
+    font-weight:bold;
+
+}

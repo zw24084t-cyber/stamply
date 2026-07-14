@@ -1,31 +1,91 @@
-let count = 0;
+const liffId = "ここにあなたのLIFF ID";
 
-function takePhoto(){
+let stamps = {
+    stamp1: false,
+    stamp2: false,
+    stamp3: false,
+    stamp4: false
+};
 
-    document.getElementById("camera").click();
+async function main() {
+
+    await liff.init({
+        liffId: liffId
+    });
+
+    if (!liff.isLoggedIn()) {
+        liff.login();
+        return;
+    }
 
 }
 
-document.getElementById("camera").addEventListener("change", function(){
+main();
 
-    if(count >= 4){
+async function scanQRCode() {
 
-        return;
+    try {
 
-    }
+        const result = await liff.scanCodeV2();
 
-    count++;
+        addStamp(result.value);
 
-    const stamp = document.getElementById("stamp"+count);
+    } catch (e) {
 
-    stamp.classList.add("done");
-    stamp.innerHTML="✓";
-
-    if(count==4){
-
-        document.getElementById("message").innerHTML=
-        "🎉 スタンプラリー達成！";
+        alert("QRコードの読み取りに失敗しました。");
 
     }
 
-});
+}
+
+function addStamp(value) {
+
+    if (value === "stamp1" && !stamps.stamp1) {
+
+        stamps.stamp1 = true;
+
+        document.getElementById("stamp1").innerHTML = "✓";
+        document.getElementById("stamp1").classList.add("done");
+
+    }
+
+    else if (value === "stamp2" && !stamps.stamp2) {
+
+        stamps.stamp2 = true;
+
+        document.getElementById("stamp2").innerHTML = "✓";
+        document.getElementById("stamp2").classList.add("done");
+
+    }
+
+    else if (value === "stamp3" && !stamps.stamp3) {
+
+        stamps.stamp3 = true;
+
+        document.getElementById("stamp3").innerHTML = "✓";
+        document.getElementById("stamp3").classList.add("done");
+
+    }
+
+    else if (value === "stamp4" && !stamps.stamp4) {
+
+        stamps.stamp4 = true;
+
+        document.getElementById("stamp4").innerHTML = "✓";
+        document.getElementById("stamp4").classList.add("done");
+
+    }
+
+    if (
+        stamps.stamp1 &&
+        stamps.stamp2 &&
+        stamps.stamp3 &&
+        stamps.stamp4
+    ) {
+
+        document.getElementById("message").innerHTML =
+            "🎉 スタンプラリー達成！";
+
+    }
+
+}
